@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol ViewModelabel {
+protocol ViewModelable {
     associatedtype Action
     associatedtype State
     

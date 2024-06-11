@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol Presentable {
-    associatedtype ViewModelType: ViewModelabel
+    associatedtype ViewModelType: ViewModelable
     
     var viewModel: ViewModelType { get }
     var statePublisher: AnyPublisher<ViewModelType.State, Never> { get }
