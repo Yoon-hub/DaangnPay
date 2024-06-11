@@ -16,6 +16,7 @@
 		67DA89C72C185C81001CF1A7 /* DaangnPayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89C62C185C81001CF1A7 /* DaangnPayTests.swift */; };
 		67DA89E32C188002001CF1A7 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89E22C188002001CF1A7 /* ViewModelable.swift */; };
 		67DA89E52C188076001CF1A7 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89E42C188076001CF1A7 /* Presentable.swift */; };
+		67DA89E82C1881C3001CF1A7 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89E72C1881C3001CF1A7 /* CommonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		67DA89C62C185C81001CF1A7 /* DaangnPayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaangnPayTests.swift; sourceTree = "<group>"; };
 		67DA89E22C188002001CF1A7 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		67DA89E42C188076001CF1A7 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		67DA89E72C1881C3001CF1A7 /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		67DA89E02C187F9C001CF1A7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				67DA89E62C1881B1001CF1A7 /* CommonVC */,
 				67DA89E12C187FA4001CF1A7 /* Protocol */,
 			);
 			path = Common;
@@ -125,6 +128,14 @@
 				67DA89E42C188076001CF1A7 /* Presentable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		67DA89E62C1881B1001CF1A7 /* CommonVC */ = {
+			isa = PBXGroup;
+			children = (
+				67DA89E72C1881C3001CF1A7 /* CommonViewController.swift */,
+			);
+			path = CommonVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +242,7 @@
 				67DA89B42C185C80001CF1A7 /* ViewController.swift in Sources */,
 				67DA89B02C185C80001CF1A7 /* AppDelegate.swift in Sources */,
 				67DA89E32C188002001CF1A7 /* ViewModelable.swift in Sources */,
+				67DA89E82C1881C3001CF1A7 /* CommonViewController.swift in Sources */,
 				67DA89E52C188076001CF1A7 /* Presentable.swift in Sources */,
 				67DA89B22C185C80001CF1A7 /* SceneDelegate.swift in Sources */,
 			);
