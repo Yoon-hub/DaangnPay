@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		67DA89B02C185C80001CF1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89AF2C185C80001CF1A7 /* AppDelegate.swift */; };
 		67DA89B22C185C80001CF1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89B12C185C80001CF1A7 /* SceneDelegate.swift */; };
-		67DA89B42C185C80001CF1A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89B32C185C80001CF1A7 /* ViewController.swift */; };
 		67DA89B72C185C80001CF1A7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 67DA89B62C185C80001CF1A7 /* Base */; };
 		67DA89B92C185C81001CF1A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67DA89B82C185C81001CF1A7 /* Assets.xcassets */; };
 		67DA89BC2C185C81001CF1A7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 67DA89BB2C185C81001CF1A7 /* Base */; };
@@ -37,7 +36,6 @@
 		67DA89AC2C185C80001CF1A7 /* DaangnPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaangnPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA89AF2C185C80001CF1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67DA89B12C185C80001CF1A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		67DA89B32C185C80001CF1A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		67DA89B62C185C80001CF1A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		67DA89B82C185C81001CF1A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67DA89BB2C185C81001CF1A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				67DA89EB2C18844F001CF1A7 /* Presentation */,
 				67DA89E02C187F9C001CF1A7 /* Common */,
 				67DA89DF2C185D36001CF1A7 /* Entry */,
-				67DA89B32C185C80001CF1A7 /* ViewController.swift */,
 				67DA89B52C185C80001CF1A7 /* Main.storyboard */,
 				67DA89B82C185C81001CF1A7 /* Assets.xcassets */,
 				67DA89BA2C185C81001CF1A7 /* LaunchScreen.storyboard */,
@@ -268,7 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				67DA89F22C18867D001CF1A7 /* SearchView.swift in Sources */,
-				67DA89B42C185C80001CF1A7 /* ViewController.swift in Sources */,
 				67DA89B02C185C80001CF1A7 /* AppDelegate.swift in Sources */,
 				67DA89EE2C1884BC001CF1A7 /* SearchViewModel.swift in Sources */,
 				67DA89F02C188589001CF1A7 /* SearchViewController.swift in Sources */,
