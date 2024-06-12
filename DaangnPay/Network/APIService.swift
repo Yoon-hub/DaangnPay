@@ -9,6 +9,12 @@ import Foundation
 
 final class APIService {
     
+    var urlSession: URLSession
+    
+    init(urlSession: URLSession = URLSession.shared) {
+        self.urlSession = urlSession
+    }
+    
     func apiRequest<T: Decodable, Router: RouterProtocol>(type: T.Type, router: Router) async throws -> T {
         
         var components = URLComponents(string: router.baseURL + router.endPoint)
@@ -37,7 +43,7 @@ final class APIService {
         logRequest(request, parameters: router.parameters)
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await self.urlSession.data(for: request)
             
             logResponse(response, data: data)
             
