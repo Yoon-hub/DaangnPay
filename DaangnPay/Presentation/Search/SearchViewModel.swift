@@ -11,7 +11,7 @@ import Combine
 final class SearchViewModel: ViewModelable {
     
     enum Action {
-        
+        case searchButtonTap(String)
     }
     
     enum State {
@@ -35,7 +35,24 @@ final class SearchViewModel: ViewModelable {
     let dependency: Dependency
     
     func input(_ action: Action) {
-        
+        switch action {
+        case .searchButtonTap(let keyWord):
+            requestSearch(keyWord)
+        }
+    }
+}
+
+// MARK: - Network
+extension SearchViewModel {
+    
+    func requestSearch(_ keyWord: String) {
+        do {
+            Task {
+                let result = try await dependency.apiService.apiRequest(type: SearchResponseDTO.self, router: ItBookRouter.search(keyWord: keyWord))
+            }
+        } catch {
+            print(error)
+        }
     }
     
 }

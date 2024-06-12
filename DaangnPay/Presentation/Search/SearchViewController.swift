@@ -21,4 +21,18 @@ final class SearchViewController: CommonViewController<SearchViewModel> {
     override func loadView() {
         self.view = searchView
     }
+    
+    override func set() {
+        super.set()
+        searchView.searchBar.delegate = self
+    }
 }
+
+// MARK: - SearchBar Delegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let keyWord = searchBar.text else {return}
+        viewModel.input(.searchButtonTap(keyWord))
+    }
+}
+
