@@ -23,6 +23,7 @@
 		67DA89F52C192381001CF1A7 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89F42C192381001CF1A7 /* RouterProtocol.swift */; };
 		67DA89F72C1923F2001CF1A7 /* ItBookRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89F62C1923F2001CF1A7 /* ItBookRouter.swift */; };
 		67DA89F92C1948EF001CF1A7 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89F82C1948EF001CF1A7 /* APIService.swift */; };
+		67DA89FC2C1968E7001CF1A7 /* SearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89FB2C1968E7001CF1A7 /* SearchResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		67DA89F42C192381001CF1A7 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		67DA89F62C1923F2001CF1A7 /* ItBookRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItBookRouter.swift; sourceTree = "<group>"; };
 		67DA89F82C1948EF001CF1A7 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		67DA89FB2C1968E7001CF1A7 /* SearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,11 +175,20 @@
 		67DA89F32C192370001CF1A7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				67DA89FA2C1968D2001CF1A7 /* ResponseDTO */,
 				67DA89F42C192381001CF1A7 /* RouterProtocol.swift */,
 				67DA89F62C1923F2001CF1A7 /* ItBookRouter.swift */,
 				67DA89F82C1948EF001CF1A7 /* APIService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		67DA89FA2C1968D2001CF1A7 /* ResponseDTO */ = {
+			isa = PBXGroup;
+			children = (
+				67DA89FB2C1968E7001CF1A7 /* SearchResponseDTO.swift */,
+			);
+			path = ResponseDTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 				67DA89EE2C1884BC001CF1A7 /* SearchViewModel.swift in Sources */,
 				67DA89F02C188589001CF1A7 /* SearchViewController.swift in Sources */,
 				67DA89E32C188002001CF1A7 /* ViewModelable.swift in Sources */,
+				67DA89FC2C1968E7001CF1A7 /* SearchResponseDTO.swift in Sources */,
 				67DA89F72C1923F2001CF1A7 /* ItBookRouter.swift in Sources */,
 				67DA89E82C1881C3001CF1A7 /* CommonViewController.swift in Sources */,
 				67DA89E52C188076001CF1A7 /* Presentable.swift in Sources */,
