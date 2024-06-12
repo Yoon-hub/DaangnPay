@@ -24,6 +24,16 @@ final class SearchViewModel: ViewModelable {
     
     private var outputSubject = PassthroughSubject<State, Never>()
     
+    struct Dependency {
+        let apiService: APIService
+    }
+    
+    init(dependency: Dependency) {
+        self.dependency = dependency
+    }
+    
+    let dependency: Dependency
+    
     func input(_ action: Action) {
         
     }

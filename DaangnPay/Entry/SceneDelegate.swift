@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
     
-        let searchViewModel = SearchViewModel()
+        let dependency = SearchViewModel.Dependency(apiService: APIService())
+            let searchViewModel = SearchViewModel(dependency: dependency)
         let searchView = SearchView()
         
         let searchViewController = SearchViewController(searchView: searchView, viewMdoel: searchViewModel)
