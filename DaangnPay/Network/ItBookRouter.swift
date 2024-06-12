@@ -17,8 +17,8 @@ enum ItBookRouter: RouterProtocol {
     
     var endPoint: String {
         switch self {
-        case .search(_):
-            return "search"
+        case .search(let keyWord):
+            return "search/\(keyWord)"
         }
     }
     
@@ -45,8 +45,8 @@ enum ItBookRouter: RouterProtocol {
     
     var queryItems: [String : String]? {
         switch self {
-        case .search(let keyWord):
-            return ["query": keyWord]
+        case .search(_):
+            return nil
         }
     }
 }
