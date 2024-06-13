@@ -57,4 +57,23 @@ final class SearchViewModelTests: XCTestCase {
             .store(in: &viewController.cancellables)
     }
 
+    
+    func test_searchButtonTap_returnsExpectedError() {
+        
+        // describe: SearchViewModel에서 실패하는 APIService를 주입받았을 때
+        let dependency = SearchViewModel.Dependency(apiService: APIServiceStub(error: ErrorMock.error, data: nil))
+        
+        searchViewModel = SearchViewModel(dependency: dependency)
+        viewController = ViewControllerMock(viewModel: searchViewModel)
+        
+        // context: TDD 입력이 발생하면
+        searchViewModel.input(.searchButtonTap("TDD"))
+        
+        // it: ViewController에 error output 전달
+        viewController.statePublisher
+            .sink { state in
+                XCTAssertEqual(state, SearchViewModel.State.showErrorAlert(ErrorMock.error))
+            }
+            .store(in: &viewController.cancellables)
+    }
 }
