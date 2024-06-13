@@ -25,7 +25,7 @@ final class SearchViewModel: ViewModelable {
     private var outputSubject = PassthroughSubject<State, Never>()
     
     struct Dependency {
-        let apiService: APIService
+        let apiService: APIServiceProtocol
     }
     
     init(dependency: Dependency) {

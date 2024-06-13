@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class APIService {
+protocol APIServiceProtocol {
+    func apiRequest<T: Decodable, Router: RouterProtocol>(type: T.Type, router: Router) async throws -> T
+}
+
+final class APIService: APIServiceProtocol {
     
     var urlSession: URLSession
     
