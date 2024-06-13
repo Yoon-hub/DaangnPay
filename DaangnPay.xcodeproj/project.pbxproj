@@ -27,6 +27,7 @@
 		67DA89FF2C19D4E4001CF1A7 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89FE2C19D4E4001CF1A7 /* APIServiceTests.swift */; };
 		67DA8A022C19D631001CF1A7 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA8A012C19D631001CF1A7 /* MockURLProtocol.swift */; };
 		67DA8A062C1A8605001CF1A7 /* ViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA8A052C1A8605001CF1A7 /* ViewControllerMock.swift */; };
+		67DA8A082C1A8660001CF1A7 /* APIServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA8A072C1A8660001CF1A7 /* APIServiceStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		67DA89FE2C19D4E4001CF1A7 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		67DA8A012C19D631001CF1A7 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		67DA8A052C1A8605001CF1A7 /* ViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMock.swift; sourceTree = "<group>"; };
+		67DA8A072C1A8660001CF1A7 /* APIServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				67DA8A052C1A8605001CF1A7 /* ViewControllerMock.swift */,
+				67DA8A072C1A8660001CF1A7 /* APIServiceStub.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				67DA8A022C19D631001CF1A7 /* MockURLProtocol.swift in Sources */,
 				67DA89FF2C19D4E4001CF1A7 /* APIServiceTests.swift in Sources */,
 				67DA89C72C185C81001CF1A7 /* DaangnPayTests.swift in Sources */,
+				67DA8A082C1A8660001CF1A7 /* APIServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
