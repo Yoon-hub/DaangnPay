@@ -26,6 +26,7 @@
 		67DA89FC2C1968E7001CF1A7 /* SearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89FB2C1968E7001CF1A7 /* SearchResponseDTO.swift */; };
 		67DA89FF2C19D4E4001CF1A7 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89FE2C19D4E4001CF1A7 /* APIServiceTests.swift */; };
 		67DA8A022C19D631001CF1A7 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA8A012C19D631001CF1A7 /* MockURLProtocol.swift */; };
+		67DA8A062C1A8605001CF1A7 /* ViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA8A052C1A8605001CF1A7 /* ViewControllerMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		67DA89FB2C1968E7001CF1A7 /* SearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseDTO.swift; sourceTree = "<group>"; };
 		67DA89FE2C19D4E4001CF1A7 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		67DA8A012C19D631001CF1A7 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		67DA8A052C1A8605001CF1A7 /* ViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		67DA89C52C185C81001CF1A7 /* DaangnPayTests */ = {
 			isa = PBXGroup;
 			children = (
+				67DA8A032C1A85E1001CF1A7 /* ViewModelTests */,
 				67DA89FD2C19D4C2001CF1A7 /* NetworkTests */,
 				67DA89C62C185C81001CF1A7 /* DaangnPayTests.swift */,
 			);
@@ -209,6 +212,22 @@
 			isa = PBXGroup;
 			children = (
 				67DA8A012C19D631001CF1A7 /* MockURLProtocol.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		67DA8A032C1A85E1001CF1A7 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				67DA8A042C1A85F3001CF1A7 /* Mock */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		67DA8A042C1A85F3001CF1A7 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				67DA8A052C1A8605001CF1A7 /* ViewControllerMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -334,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67DA8A062C1A8605001CF1A7 /* ViewControllerMock.swift in Sources */,
 				67DA8A022C19D631001CF1A7 /* MockURLProtocol.swift in Sources */,
 				67DA89FF2C19D4E4001CF1A7 /* APIServiceTests.swift in Sources */,
 				67DA89C72C185C81001CF1A7 /* DaangnPayTests.swift in Sources */,
