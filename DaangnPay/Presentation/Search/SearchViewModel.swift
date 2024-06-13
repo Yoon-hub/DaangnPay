@@ -15,7 +15,7 @@ final class SearchViewModel: ViewModelable {
     }
     
     enum State {
-        
+        case reloadTableView
     }
     
     var output: AnyPublisher<State, Never> {
@@ -40,6 +40,13 @@ final class SearchViewModel: ViewModelable {
             requestSearch(keyWord)
         }
     }
+    
+    // MARK: - Properties
+    let itmsPerPage = 10
+    
+    var bookList: [Book] = []
+    var totalPage = 0
+    var currentPage = 0
 }
 
 // MARK: - Network
@@ -49,6 +56,11 @@ extension SearchViewModel {
         do {
             Task {
                 let result = try await dependency.apiService.apiRequest(type: SearchResponseDTO.self, router: ItBookRouter.search(keyWord: keyWord))
+                
+                bookList = result.books
+                totalPage = Int(ceil(Double(result.total)! / Double(itmsPerPage)))
+                currentPage = 1
+                outputSubject.send(.reloadTableView)
             }
         } catch {
             print(error)
