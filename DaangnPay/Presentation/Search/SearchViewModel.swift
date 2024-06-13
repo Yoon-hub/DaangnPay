@@ -16,6 +16,7 @@ final class SearchViewModel: ViewModelable {
     
     enum State {
         case reloadTableView
+        case showErrorAlert(Error)
     }
     
     var output: AnyPublisher<State, Never> {
@@ -63,7 +64,7 @@ extension SearchViewModel {
                 outputSubject.send(.reloadTableView)
             }
         } catch {
-            print(error)
+            outputSubject.send(.showErrorAlert(error))
         }
     }
     
