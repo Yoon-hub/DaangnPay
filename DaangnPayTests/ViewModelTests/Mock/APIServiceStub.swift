@@ -29,3 +29,7 @@ final class APIServiceStub: APIServiceProtocol {
        return data
     }
 }
+
+enum ErrorMock: Error {
+    case error
+}
