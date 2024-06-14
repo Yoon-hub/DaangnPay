@@ -27,6 +27,7 @@ final class SearchViewController: CommonViewController<SearchViewModel> {
     override func set() {
         super.set()
         searchView.searchBar.delegate = self
+        searchView.bookListTableView.delegate = self
         setDataSoucre()
     }
     
@@ -49,10 +50,10 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 // MARK: - TableView
-extension SearchViewController {
+extension SearchViewController: UITableViewDelegate {
     private func setDataSoucre() {
         diffableDataSource = UITableViewDiffableDataSource(tableView: searchView.bookListTableView, cellProvider: { tableView, indexPath, book in
-            print(book)
+
             let cell = tableView.dequeueReusableCell(withIdentifier: BookListTableViewCell.identifier, for: indexPath) as! BookListTableViewCell
             
             cell.bind(book: book)
@@ -67,5 +68,16 @@ extension SearchViewController {
         snapshot.appendSections([0])
         snapshot.appendItems(items)
         diffableDataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height && !(viewModel.isPageLoading) {
+            viewModel.input(.scrollDidBottom)
+            viewModel.isPageLoading = true
+        }
     }
 }

@@ -12,6 +12,7 @@ final class SearchViewModel: ViewModelable {
     
     enum Action {
         case searchButtonTap(String)
+        case scrollDidBottom
     }
     
     enum State {
@@ -38,22 +39,29 @@ final class SearchViewModel: ViewModelable {
     func input(_ action: Action) {
         switch action {
         case .searchButtonTap(let keyWord):
+            searchKeyword = keyWord
+            isPageLoading = false
             requestSearch(keyWord)
+        case .scrollDidBottom:
+            if totalPage > currentPage { requestNextPage() }
         }
     }
     
     // MARK: - Properties
-    let itmsPerPage = 10
+    private let itmsPerPage = 10
     
     var bookList: [Book] = []
-    var totalPage = 0
-    var currentPage = 0
+    private var totalPage = 0
+    private var currentPage = 0
+    var searchKeyword = ""
+    
+    var isPageLoading = false
 }
 
 // MARK: - Network
 extension SearchViewModel {
     
-    func requestSearch(_ keyWord: String) {
+    private func requestSearch(_ keyWord: String) {
         Task {
             do {
                 let result = try await dependency.apiService.apiRequest(type: SearchResponseDTO.self, router: ItBookRouter.search(keyWord: keyWord))
@@ -68,4 +76,20 @@ extension SearchViewModel {
         }
     }
     
+    private func requestNextPage() {
+        Task {
+            do {
+                let result = try await dependency.apiService.apiRequest(type: SearchResponseDTO.self, router: ItBookRouter.searchWithPage(keyWord: searchKeyword, page: String(currentPage + 1)))
+                
+                bookList.append(contentsOf: result.books)
+                currentPage += 1
+                isPageLoading = false
+                outputSubject.send(.reloadTableView)
+            } catch {
+                isPageLoading = false
+                outputSubject.send(.showErrorAlert(error))
+            }
+            
+        }
+    }
 }
