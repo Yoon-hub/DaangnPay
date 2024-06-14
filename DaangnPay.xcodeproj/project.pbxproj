@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		673D52912C1BC529009A5FA9 /* ViewModelStateEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D52902C1BC529009A5FA9 /* ViewModelStateEquatable.swift */; };
 		67DA89B02C185C80001CF1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89AF2C185C80001CF1A7 /* AppDelegate.swift */; };
 		67DA89B22C185C80001CF1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89B12C185C80001CF1A7 /* SceneDelegate.swift */; };
 		67DA89B72C185C80001CF1A7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 67DA89B62C185C80001CF1A7 /* Base */; };
 		67DA89B92C185C81001CF1A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67DA89B82C185C81001CF1A7 /* Assets.xcassets */; };
 		67DA89BC2C185C81001CF1A7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 67DA89BB2C185C81001CF1A7 /* Base */; };
-		67DA89C72C185C81001CF1A7 /* DaangnPayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89C62C185C81001CF1A7 /* DaangnPayTests.swift */; };
 		67DA89E32C188002001CF1A7 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89E22C188002001CF1A7 /* ViewModelable.swift */; };
 		67DA89E52C188076001CF1A7 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89E42C188076001CF1A7 /* Presentable.swift */; };
 		67DA89E82C1881C3001CF1A7 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89E72C1881C3001CF1A7 /* CommonViewController.swift */; };
@@ -42,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		673D52902C1BC529009A5FA9 /* ViewModelStateEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelStateEquatable.swift; sourceTree = "<group>"; };
 		67DA89AC2C185C80001CF1A7 /* DaangnPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaangnPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA89AF2C185C80001CF1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67DA89B12C185C80001CF1A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		67DA89BB2C185C81001CF1A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67DA89BD2C185C81001CF1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67DA89C22C185C81001CF1A7 /* DaangnPayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaangnPayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		67DA89C62C185C81001CF1A7 /* DaangnPayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaangnPayTests.swift; sourceTree = "<group>"; };
 		67DA89E22C188002001CF1A7 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		67DA89E42C188076001CF1A7 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		67DA89E72C1881C3001CF1A7 /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +125,6 @@
 			children = (
 				67DA8A032C1A85E1001CF1A7 /* ViewModelTests */,
 				67DA89FD2C19D4C2001CF1A7 /* NetworkTests */,
-				67DA89C62C185C81001CF1A7 /* DaangnPayTests.swift */,
 			);
 			path = DaangnPayTests;
 			sourceTree = "<group>";
@@ -232,6 +231,7 @@
 		67DA8A042C1A85F3001CF1A7 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				673D52902C1BC529009A5FA9 /* ViewModelStateEquatable.swift */,
 				67DA8A052C1A8605001CF1A7 /* ViewControllerMock.swift */,
 				67DA8A072C1A8660001CF1A7 /* APIServiceStub.swift */,
 			);
@@ -362,8 +362,8 @@
 				67DA8A062C1A8605001CF1A7 /* ViewControllerMock.swift in Sources */,
 				67DA8A022C19D631001CF1A7 /* MockURLProtocol.swift in Sources */,
 				67DA8A0A2C1ABA0B001CF1A7 /* SearchViewModelTests.swift in Sources */,
+				673D52912C1BC529009A5FA9 /* ViewModelStateEquatable.swift in Sources */,
 				67DA89FF2C19D4E4001CF1A7 /* APIServiceTests.swift in Sources */,
-				67DA89C72C185C81001CF1A7 /* DaangnPayTests.swift in Sources */,
 				67DA8A082C1A8660001CF1A7 /* APIServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
