@@ -54,17 +54,17 @@ final class SearchViewModel: ViewModelable {
 extension SearchViewModel {
     
     func requestSearch(_ keyWord: String) {
-        do {
-            Task {
+        Task {
+            do {
                 let result = try await dependency.apiService.apiRequest(type: SearchResponseDTO.self, router: ItBookRouter.search(keyWord: keyWord))
                 
                 bookList = result.books
                 totalPage = Int(ceil(Double(result.total)! / Double(itmsPerPage)))
                 currentPage = 1
                 outputSubject.send(.reloadTableView)
+            } catch {
+                outputSubject.send(.showErrorAlert(error))
             }
-        } catch {
-            outputSubject.send(.showErrorAlert(error))
         }
     }
     
