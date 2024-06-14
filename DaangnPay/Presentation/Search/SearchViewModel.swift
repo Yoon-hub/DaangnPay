@@ -51,8 +51,8 @@ final class SearchViewModel: ViewModelable {
     private let itmsPerPage = 10
     
     var bookList: [Book] = []
-    private var totalPage = 0
-    private var currentPage = 0
+    var totalPage = 0
+    var currentPage = 0
     var searchKeyword = ""
     
     var isPageLoading = false

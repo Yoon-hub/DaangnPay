@@ -87,4 +87,31 @@ final class SearchViewModelTests: XCTestCase {
     
         await fulfillment(of: [expectation], timeout: 1.0)
     }
+    
+    func test_scrollDidBottom_returnsNextPage() async {
+        
+        let expectation = self.expectation(description: "Search completes")
+        
+        // 이벤트 방출 이전에 구독
+        viewController.statePublisher
+            .sink { state in
+                // it: ViewContoller output으로 tableViewReload 전달
+                XCTAssertEqual(state, SearchViewModel.State.reloadTableView)
+                expectation.fulfill()
+            }
+            .store(in: &viewController.cancellables)
+        
+        searchViewModel.totalPage = 10
+        searchViewModel.currentPage = 1
+        
+        // context: 아래로 스크롤 되면
+        searchViewModel.input(.scrollDidBottom)
+        
+        await fulfillment(of: [expectation], timeout: 1.0)
+        
+        // it: bookList에 정상적으로 추가 되고, currentPage 증가
+        XCTAssertEqual(searchViewModel.bookList.first?.title, "Learning Swift 2 Programming, 2nd Edition")
+        XCTAssertEqual(searchViewModel.currentPage, 2)
+    }
+    
 }
