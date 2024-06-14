@@ -40,25 +40,31 @@ final class SearchViewModelTests: XCTestCase {
         viewController = nil
     }
     
-    func test_searchButtonTap_returnsExpectedBookList() {
+    func test_searchButtonTap_returnsExpectedBookList() async {
+        
+        let expectation = self.expectation(description: "Search completes")
+        
+        // 이벤트 방출 이전에 구독
+        viewController.statePublisher
+            .sink { state in
+                // it: ViewContoller output으로 tableViewReload 전달
+                XCTAssertEqual(state, SearchViewModel.State.reloadTableView)
+                expectation.fulfill()
+            }
+            .store(in: &viewController.cancellables)
         
         // context: TDD 입력이 발생하면
         searchViewModel.input(.searchButtonTap("TDD"))
+         
+        await fulfillment(of: [expectation], timeout: 1.0)
         
         // it: bookList에 정상적으로 저장
         XCTAssertEqual(searchViewModel.bookList.first?.title, "Learning Swift 2 Programming, 2nd Edition")
         XCTAssertEqual(searchViewModel.currentPage, 1)
-        
-        // it: ViewContoller에 reload output 전달
-        viewController.statePublisher
-            .sink { state in
-                XCTAssertEqual(state, SearchViewModel.State.reloadTableView)
-            }
-            .store(in: &viewController.cancellables)
     }
 
     
-    func test_searchButtonTap_returnsExpectedError() {
+    func test_searchButtonTap_returnsExpectedError() async {
         
         // describe: SearchViewModel에서 실패하는 APIService를 주입받았을 때
         let dependency = SearchViewModel.Dependency(apiService: APIServiceStub(error: ErrorMock.error, data: nil))
@@ -66,14 +72,19 @@ final class SearchViewModelTests: XCTestCase {
         searchViewModel = SearchViewModel(dependency: dependency)
         viewController = ViewControllerMock(viewModel: searchViewModel)
         
-        // context: TDD 입력이 발생하면
-        searchViewModel.input(.searchButtonTap("TDD"))
+        let expectation = self.expectation(description: "Search completes")
         
-        // it: ViewController에 error output 전달
         viewController.statePublisher
             .sink { state in
+                // it: ViewController에 error Alert 전달
                 XCTAssertEqual(state, SearchViewModel.State.showErrorAlert(ErrorMock.error))
+                expectation.fulfill()
             }
             .store(in: &viewController.cancellables)
+        
+        // context: TDD 입력이 발생하면
+        searchViewModel.input(.searchButtonTap("TDD"))
+    
+        await fulfillment(of: [expectation], timeout: 1.0)
     }
 }
