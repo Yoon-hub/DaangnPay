@@ -15,9 +15,11 @@ final class ImageCacheManager {
 
 
 extension UIImageView {
-    func loadImage(url: URL) {
+    func loadImage(url: URL, imagePlaceHolder: UIImage? = nil) {
         
         let imageCache = ImageCacheManager.shared
+        
+        if let imagePlaceHolder { self.image = imagePlaceHolder }
 
         // Check if the image is cached in memory
         let cacheKey = NSString(string: url.absoluteString)

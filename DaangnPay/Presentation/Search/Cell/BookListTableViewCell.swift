@@ -95,7 +95,7 @@ extension BookListTableViewCell {
     func bind(book: Book) {
         
         guard let url = URL(string: book.image) else {return}
-        bookImageView.loadImage(url: url)
+        bookImageView.loadImage(url: url, imagePlaceHolder: UIImage(named: "imagePlaceholder"))
         
         titleLabel.text = book.title
         subTitleLabel.text = book.subtitle
