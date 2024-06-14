@@ -14,7 +14,7 @@ struct SearchResponseDTO: Decodable {
     let books: [Book]
 }
 
-struct Book: Decodable {
+struct Book: Decodable, Hashable {
     let title: String
     let subtitle: String?
     let isbn13: String
