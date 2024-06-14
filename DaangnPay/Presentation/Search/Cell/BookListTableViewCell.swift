@@ -9,21 +9,33 @@ import UIKit
 
 final class BookListTableViewCell: UITableViewCell {
     
-    let bookImageView = UIImageView()
+    let bookImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
+    }
     
-    let titleLabel = UILabel()
+    let titleLabel = UILabel().then {
+        $0.font = .boldSystemFont(ofSize: 15)
+    }
     
-    let subTitleLabel = UILabel()
+    let subTitleLabel = UILabel().then {
+        $0.textColor = .systemGray2
+        $0.font = .systemFont(ofSize: 12)
+    }
     
     let priceLabel = UILabel()
     
-    let isbnLabel = UILabel()
+    let isbnLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 9)
+    }
     
-    let urlLabel = UILabel()
+    let urlLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 9)
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
@@ -40,20 +52,20 @@ final class BookListTableViewCell: UITableViewCell {
     private func setUI() {
         
         NSLayoutConstraint.activate([
-            bookImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            bookImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             bookImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             bookImageView.widthAnchor.constraint(equalToConstant: 100),
             bookImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: bookImageView.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: bookImageView.topAnchor, constant: 4),
             titleLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
         
         NSLayoutConstraint.activate([
-            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            subTitleLabel.topAnchor.constraint(equalTo: bookImageView.topAnchor, constant: 2),
             subTitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subTitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
         ])
