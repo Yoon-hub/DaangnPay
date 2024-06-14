@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		673D52912C1BC529009A5FA9 /* ViewModelStateEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D52902C1BC529009A5FA9 /* ViewModelStateEquatable.swift */; };
+		673D52942C1BCEA5009A5FA9 /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D52932C1BCEA5009A5FA9 /* BookListTableViewCell.swift */; };
+		673D52992C1BF21B009A5FA9 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D52982C1BF21B009A5FA9 /* ImageCacheManager.swift */; };
+		673D529B2C1BF49F009A5FA9 /* IdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D529A2C1BF49F009A5FA9 /* IdentifierProtocol.swift */; };
 		67DA89B02C185C80001CF1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89AF2C185C80001CF1A7 /* AppDelegate.swift */; };
 		67DA89B22C185C80001CF1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89B12C185C80001CF1A7 /* SceneDelegate.swift */; };
 		67DA89B72C185C80001CF1A7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 67DA89B62C185C80001CF1A7 /* Base */; };
@@ -43,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		673D52902C1BC529009A5FA9 /* ViewModelStateEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelStateEquatable.swift; sourceTree = "<group>"; };
+		673D52932C1BCEA5009A5FA9 /* BookListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
+		673D52982C1BF21B009A5FA9 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		673D529A2C1BF49F009A5FA9 /* IdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierProtocol.swift; sourceTree = "<group>"; };
 		67DA89AC2C185C80001CF1A7 /* DaangnPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaangnPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA89AF2C185C80001CF1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67DA89B12C185C80001CF1A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		673D52922C1BCE7E009A5FA9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				673D52932C1BCEA5009A5FA9 /* BookListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		673D52952C1BED2B009A5FA9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				673D52982C1BF21B009A5FA9 /* ImageCacheManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		67DA89A32C185C80001CF1A7 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +163,7 @@
 		67DA89E02C187F9C001CF1A7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				673D52952C1BED2B009A5FA9 /* Manager */,
 				67DA89E62C1881B1001CF1A7 /* CommonVC */,
 				67DA89E12C187FA4001CF1A7 /* Protocol */,
 			);
@@ -153,6 +176,7 @@
 				67DA89E22C188002001CF1A7 /* ViewModelable.swift */,
 				67DA89E42C188076001CF1A7 /* Presentable.swift */,
 				67DA89E92C1882A5001CF1A7 /* Then.swift */,
+				673D529A2C1BF49F009A5FA9 /* IdentifierProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -176,6 +200,7 @@
 		67DA89EC2C188470001CF1A7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				673D52922C1BCE7E009A5FA9 /* Cell */,
 				67DA89ED2C1884BC001CF1A7 /* SearchViewModel.swift */,
 				67DA89EF2C188589001CF1A7 /* SearchViewController.swift */,
 				67DA89F12C18867D001CF1A7 /* SearchView.swift */,
@@ -341,10 +366,13 @@
 			files = (
 				67DA89F22C18867D001CF1A7 /* SearchView.swift in Sources */,
 				67DA89B02C185C80001CF1A7 /* AppDelegate.swift in Sources */,
+				673D52992C1BF21B009A5FA9 /* ImageCacheManager.swift in Sources */,
 				67DA89F52C192381001CF1A7 /* RouterProtocol.swift in Sources */,
 				67DA89EE2C1884BC001CF1A7 /* SearchViewModel.swift in Sources */,
 				67DA89F02C188589001CF1A7 /* SearchViewController.swift in Sources */,
 				67DA89E32C188002001CF1A7 /* ViewModelable.swift in Sources */,
+				673D52942C1BCEA5009A5FA9 /* BookListTableViewCell.swift in Sources */,
+				673D529B2C1BF49F009A5FA9 /* IdentifierProtocol.swift in Sources */,
 				67DA89FC2C1968E7001CF1A7 /* SearchResponseDTO.swift in Sources */,
 				67DA89F72C1923F2001CF1A7 /* ItBookRouter.swift in Sources */,
 				67DA89E82C1881C3001CF1A7 /* CommonViewController.swift in Sources */,

@@ -12,6 +12,7 @@ final class SearchView: UIView {
     let searchBar = UISearchBar()
     
     let bookListTableView = UITableView().then {
+        $0.register(BookListTableViewCell.self, forCellReuseIdentifier: BookListTableViewCell.identifier)
         $0.backgroundColor = .systemGray5
     }
     
