@@ -13,6 +13,9 @@
 		673D529B2C1BF49F009A5FA9 /* IdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D529A2C1BF49F009A5FA9 /* IdentifierProtocol.swift */; };
 		673D529E2C1D0866009A5FA9 /* ImageCacheManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D529D2C1D0866009A5FA9 /* ImageCacheManagerTests.swift */; };
 		673D52A02C1D5493009A5FA9 /* DetailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D529F2C1D5493009A5FA9 /* DetailResponseDTO.swift */; };
+		673D52A32C1DD67F009A5FA9 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D52A22C1DD67F009A5FA9 /* DetailViewModel.swift */; };
+		673D52A52C1DD701009A5FA9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D52A42C1DD701009A5FA9 /* DetailViewController.swift */; };
+		673D52A72C1DD7B9009A5FA9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673D52A62C1DD7B9009A5FA9 /* DetailView.swift */; };
 		67DA89B02C185C80001CF1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89AF2C185C80001CF1A7 /* AppDelegate.swift */; };
 		67DA89B22C185C80001CF1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA89B12C185C80001CF1A7 /* SceneDelegate.swift */; };
 		67DA89B72C185C80001CF1A7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 67DA89B62C185C80001CF1A7 /* Base */; };
@@ -53,6 +56,9 @@
 		673D529A2C1BF49F009A5FA9 /* IdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierProtocol.swift; sourceTree = "<group>"; };
 		673D529D2C1D0866009A5FA9 /* ImageCacheManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManagerTests.swift; sourceTree = "<group>"; };
 		673D529F2C1D5493009A5FA9 /* DetailResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponseDTO.swift; sourceTree = "<group>"; };
+		673D52A22C1DD67F009A5FA9 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		673D52A42C1DD701009A5FA9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		673D52A62C1DD7B9009A5FA9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		67DA89AC2C185C80001CF1A7 /* DaangnPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaangnPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA89AF2C185C80001CF1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67DA89B12C185C80001CF1A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +125,16 @@
 				673D529D2C1D0866009A5FA9 /* ImageCacheManagerTests.swift */,
 			);
 			path = ImageCachingTests;
+			sourceTree = "<group>";
+		};
+		673D52A12C1DD662009A5FA9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				673D52A22C1DD67F009A5FA9 /* DetailViewModel.swift */,
+				673D52A42C1DD701009A5FA9 /* DetailViewController.swift */,
+				673D52A62C1DD7B9009A5FA9 /* DetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		67DA89A32C185C80001CF1A7 = {
@@ -205,6 +221,7 @@
 		67DA89EB2C18844F001CF1A7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				673D52A12C1DD662009A5FA9 /* Detail */,
 				67DA89EC2C188470001CF1A7 /* Search */,
 			);
 			path = Presentation;
@@ -388,9 +405,12 @@
 				673D52942C1BCEA5009A5FA9 /* BookListTableViewCell.swift in Sources */,
 				673D529B2C1BF49F009A5FA9 /* IdentifierProtocol.swift in Sources */,
 				67DA89FC2C1968E7001CF1A7 /* SearchResponseDTO.swift in Sources */,
+				673D52A52C1DD701009A5FA9 /* DetailViewController.swift in Sources */,
 				67DA89F72C1923F2001CF1A7 /* ItBookRouter.swift in Sources */,
 				67DA89E82C1881C3001CF1A7 /* CommonViewController.swift in Sources */,
+				673D52A72C1DD7B9009A5FA9 /* DetailView.swift in Sources */,
 				67DA89E52C188076001CF1A7 /* Presentable.swift in Sources */,
+				673D52A32C1DD67F009A5FA9 /* DetailViewModel.swift in Sources */,
 				67DA89B22C185C80001CF1A7 /* SceneDelegate.swift in Sources */,
 				673D52A02C1D5493009A5FA9 /* DetailResponseDTO.swift in Sources */,
 				67DA89F92C1948EF001CF1A7 /* APIService.swift in Sources */,
