@@ -25,4 +25,8 @@ final class DetailViewController: CommonViewController<DetailViewModel> {
         detailView.bind(detailResponse: viewModel.dependency.detailBookData)
     }
     
+    override func setNavigationBar() {
+        self.navigationItem.title = "상세 화면"
+    }
+    
 }

@@ -31,6 +31,10 @@ final class SearchViewController: CommonViewController<SearchViewModel> {
         setDataSoucre()
     }
     
+    override func setNavigationBar() {
+        self.navigationItem.title = "검색 화면"
+    }
+    
     override func handleOutput(_ state: SearchViewModel.State) {
         switch state {
         case .reloadTableView:
