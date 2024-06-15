@@ -15,6 +15,8 @@ extension SearchViewModel.State: Equatable {
             return true
         case (.showErrorAlert(let lhsError), .showErrorAlert(let rhsError)):
             return lhsError.localizedDescription == rhsError.localizedDescription
+        case (.transitionToDetail(let lhsDetail), .transitionToDetail(let rhsDetail)):
+            return lhsDetail == rhsDetail
         default:
             return false
         }

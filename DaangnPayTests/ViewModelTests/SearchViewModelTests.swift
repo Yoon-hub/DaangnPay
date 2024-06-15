@@ -114,4 +114,51 @@ final class SearchViewModelTests: XCTestCase {
         XCTAssertEqual(searchViewModel.currentPage, 2)
     }
     
+    func test_selectedBook_returnDetailPage() async {
+        
+        let expectation = self.expectation(description: "Search Detail Completes")
+        
+        // Given
+        let detailResponse = DetailResponseDTO(error: "0",
+                                               title: "Learning Swift 2 Programming, 2nd Edition",
+                                               subtitle: "",
+                                               authors: "Jacob Schatz",
+                                               publisher: "Addison-Wesley",
+                                               language: "9780134431598",
+                                               isbn10: "400",
+                                               isbn13: "2015", 
+                                               pages: "4.5",
+                                               year: "Get valuable hands-on experience with Swift 2, the latest version of Apple’s programming language. With this practical guide, skilled programmers with little or no knowledge of Apple development will learn how to code with Swift 2 by developing three complete, tightly linked versions of the Notes application for the OS X, iOS, and watchOS platforms.",
+                                               rating: "$28.32",
+                                               desc: "https://itbook.store/img/books/9780134431598.png",
+                                               price: "https://itbook.store/books/9780134431598", 
+                                               image: "English",
+                                               url: "0134431596")
+    
+        let apiService = APIServiceStub(error: nil, data: detailResponse)
+        let depndency = SearchViewModel.Dependency(apiService: apiService)
+        searchViewModel = SearchViewModel(dependency: depndency)
+        
+        viewController = ViewControllerMock(viewModel: searchViewModel)
+        
+        searchViewModel.bookList.append(Book(title: "Learning Swift 2 Programming, 2nd Edition",
+                                             subtitle: "",
+                                             isbn13: "9780134431598",
+                                             price: "$28.32",
+                                             image: "https://itbook.store/img/books/9780134431598.png",
+                                             url: "https://itbook.store/books/9780134431598"))
+        
+        viewController.statePublisher
+            .sink { state in
+                // Then: Detail ViewController로 화면 전환
+                XCTAssertEqual(state, SearchViewModel.State.transitionToDetail(detailResponse))
+                expectation.fulfill()
+            }
+            .store(in: &viewController.cancellables)
+        
+        // When: 책 선택 시
+        searchViewModel.input(.selectBook(IndexPath(row: 0, section: 0)))
+        
+        await fulfillment(of: [expectation])
+    }
 }

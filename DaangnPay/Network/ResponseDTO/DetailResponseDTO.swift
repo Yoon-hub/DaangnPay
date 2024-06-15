@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailResponseDTO: Codable {
+struct DetailResponseDTO: Codable, Equatable {
     let error, title, subtitle, authors: String
     let publisher, language, isbn10, isbn13: String
     let pages, year, rating, desc: String
