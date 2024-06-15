@@ -11,6 +11,7 @@ enum ItBookRouter: RouterProtocol {
     
     case search(keyWord: String)
     case searchWithPage(keyWord: String, page: String)
+    case searchDetail(isbn: String)
     
     var baseURL: String {
         "https://api.itbook.store/1.0/"
@@ -22,33 +23,35 @@ enum ItBookRouter: RouterProtocol {
             return "search/\(keyWord)"
         case .searchWithPage(keyWord: let keyWord, page: let page):
             return "search/\(keyWord)/\(page)"
+        case .searchDetail(let isbn):
+            return "books/\(isbn)"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .search(_), .searchWithPage(_,_):
+        case .search(_), .searchWithPage(_,_), .searchDetail(_):
             return .get
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .search(_), .searchWithPage(_,_):
+        case .search(_), .searchWithPage(_,_), .searchDetail(_):
             return nil
         }
     }
     
     var parameters: [String : Any]? {
         switch self {
-        case .search(_), .searchWithPage(_,_):
+        case .search(_), .searchWithPage(_,_), .searchDetail(_):
             return nil
         }
     }
     
     var queryItems: [String : String]? {
         switch self {
-        case .search(_), .searchWithPage(_,_):
+        case .search(_), .searchWithPage(_,_), .searchDetail(_):
             return nil
         }
     }
