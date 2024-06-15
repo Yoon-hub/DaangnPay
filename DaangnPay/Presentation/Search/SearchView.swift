@@ -14,7 +14,6 @@ final class SearchView: UIView {
     let bookListTableView = UITableView().then {
         $0.rowHeight = 160
         $0.register(BookListTableViewCell.self, forCellReuseIdentifier: BookListTableViewCell.identifier)
-        $0.backgroundColor = .systemGray5
     }
     
     override init(frame: CGRect) {

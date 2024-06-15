@@ -14,7 +14,6 @@ final class DetailView: UIView {
     let contentView = UIView()
     
     let bookImageView = UIImageView().then {
-        $0.backgroundColor = .yellow
         $0.contentMode = .scaleAspectFit
     }
     
