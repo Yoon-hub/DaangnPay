@@ -61,7 +61,7 @@ extension UIImageView {
         }
     }
 
-    private func loadImageFromDiskCache(for url: URL) -> UIImage? {
+    func loadImageFromDiskCache(for url: URL) -> UIImage? {
         let fileManager = FileManager.default
         let cacheDirectory = getCacheDirectory()
         let filePath = cacheDirectory.appendingPathComponent(url.lastPathComponent)
@@ -74,7 +74,7 @@ extension UIImageView {
         return nil
     }
 
-    private func saveImageToDiskCache(image: UIImage, for url: URL) {
+    func saveImageToDiskCache(image: UIImage, for url: URL) {
         let cacheDirectory = getCacheDirectory()
         let filePath = cacheDirectory.appendingPathComponent(url.lastPathComponent)
 
