@@ -57,6 +57,7 @@ class CommonViewController<ViewModel: ViewModelable>: UIViewController, Presenta
             .store(in: &cancellables)
         
         stateSubject
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 self?.handleOutput(state)
             }
