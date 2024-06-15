@@ -19,7 +19,7 @@ final class SearchViewModel: ViewModelable {
     enum State {
         case reloadTableView
         case showErrorAlert(Error)
-        case transitionToDetail(DetailTesponseDTO)
+        case transitionToDetail(DetailResponseDTO)
     }
     
     var output: AnyPublisher<State, Never> {
@@ -101,7 +101,7 @@ extension SearchViewModel {
     private func requestDeatail(_ isbn13: String) {
         Task {
             do {
-                let result = try await dependency.apiService.apiRequest(type: DetailTesponseDTO.self, router: ItBookRouter.searchDetail(isbn: isbn13))
+                let result = try await dependency.apiService.apiRequest(type: DetailResponseDTO.self, router: ItBookRouter.searchDetail(isbn: isbn13))
                 outputSubject.send(.transitionToDetail(result))
             } catch {
                 outputSubject.send(.showErrorAlert(error))
