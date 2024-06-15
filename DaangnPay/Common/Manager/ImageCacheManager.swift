@@ -35,24 +35,30 @@ extension UIImageView {
             return
         }
 
-        // Download image if not cached
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil, let downloadedImage = UIImage(data: data) else {
-                print("Error downloading image: \(error?.localizedDescription ?? "Unknown error")")
-                return
+        Task {
+            do {
+                // Download image if not cached
+                let (data, _) = try await URLSession.shared.data(from: url)
+                
+                guard let downloadedImage = UIImage(data: data) else {
+                    print("Error creating image from data")
+                    return
+                }
+                
+                // Cache the image in memory
+                imageCache.setObject(downloadedImage, forKey: cacheKey)
+                
+                // Cache the image on disk
+                saveImageToDiskCache(image: downloadedImage, for: url)
+                
+                // Update UIImageView on the main thread
+                DispatchQueue.main.async {
+                    self.image = downloadedImage
+                }
+            } catch {
+                throw error
             }
-
-            // Cache the image in memory
-            imageCache.setObject(downloadedImage, forKey: cacheKey)
-
-            // Cache the image on disk
-            self.saveImageToDiskCache(image: downloadedImage, for: url)
-
-            // Update UIImageView on the main thread
-            DispatchQueue.main.async {
-                self.image = downloadedImage
-            }
-        }.resume()
+        }
     }
 
     private func loadImageFromDiskCache(for url: URL) -> UIImage? {
