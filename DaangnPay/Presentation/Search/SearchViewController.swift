@@ -35,6 +35,8 @@ final class SearchViewController: CommonViewController<SearchViewModel> {
         switch state {
         case .reloadTableView:
             self.updateSnapshot(with: viewModel.bookList)
+        case .showErrorAlert(let error):
+            self.showAlert(title: "오류", message: error.localizedDescription)
         default:
             break
         }
