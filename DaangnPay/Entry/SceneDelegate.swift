@@ -24,7 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searchView = SearchView()
         
         let searchViewController = SearchViewController(searchView: searchView, viewMdoel: searchViewModel)
-        window?.rootViewController = searchViewController
+        let navigationController = UINavigationController(rootViewController: searchViewController)
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

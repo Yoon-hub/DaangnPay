@@ -37,9 +37,24 @@ final class SearchViewController: CommonViewController<SearchViewModel> {
             self.updateSnapshot(with: viewModel.bookList)
         case .showErrorAlert(let error):
             self.showAlert(title: "오류", message: error.localizedDescription)
+        case .transitionToDetail(let detailResponse):
+            self.moveToDetailVC(detailResponse)
+        
         default:
             break
         }
+    }
+}
+
+// MARK: - View Transition
+extension SearchViewController {
+    private func moveToDetailVC(_ detailResponse: DetailResponseDTO) {
+        let dependency = DetailViewModel.Dependency(detailBookData: detailResponse)
+        let viewModel = DetailViewModel(dependency: dependency)
+        let detailView = DetailView()
+        let detailVC = DetailViewController(detailView: detailView, viewModel: viewModel)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
