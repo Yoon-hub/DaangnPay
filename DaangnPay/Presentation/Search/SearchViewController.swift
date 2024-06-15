@@ -70,6 +70,7 @@ extension SearchViewController: UITableViewDelegate {
         diffableDataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    // MARK: - Delegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
@@ -80,4 +81,9 @@ extension SearchViewController: UITableViewDelegate {
             viewModel.isPageLoading = true
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.input(.selectBook(indexPath))
+    }
+
 }

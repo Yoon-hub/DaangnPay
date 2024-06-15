@@ -13,11 +13,13 @@ final class SearchViewModel: ViewModelable {
     enum Action {
         case searchButtonTap(String)
         case scrollDidBottom
+        case selectBook(IndexPath)
     }
     
     enum State {
         case reloadTableView
         case showErrorAlert(Error)
+        case transitionToDetail(DetailTesponseDTO)
     }
     
     var output: AnyPublisher<State, Never> {
@@ -44,6 +46,9 @@ final class SearchViewModel: ViewModelable {
             requestSearch(keyWord)
         case .scrollDidBottom:
             if totalPage > currentPage { requestNextPage() }
+        case .selectBook(let indexPath):
+            let seletedBook = bookList[indexPath.row]
+            requestDeatail(seletedBook.isbn13)
         }
     }
     
@@ -90,6 +95,17 @@ extension SearchViewModel {
                 outputSubject.send(.showErrorAlert(error))
             }
             
+        }
+    }
+    
+    private func requestDeatail(_ isbn13: String) {
+        Task {
+            do {
+                let result = try await dependency.apiService.apiRequest(type: DetailTesponseDTO.self, router: ItBookRouter.searchDetail(isbn: isbn13))
+                outputSubject.send(.transitionToDetail(result))
+            } catch {
+                outputSubject.send(.showErrorAlert(error))
+            }
         }
     }
 }
