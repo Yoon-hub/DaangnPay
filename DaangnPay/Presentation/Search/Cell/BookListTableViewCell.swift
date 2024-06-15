@@ -43,6 +43,7 @@ final class BookListTableViewCell: UITableViewCell {
     }
     
     private func configure() {
+        self.selectionStyle = .none
         [bookImageView, titleLabel, subTitleLabel, priceLabel, isbnLabel, urlLabel].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
