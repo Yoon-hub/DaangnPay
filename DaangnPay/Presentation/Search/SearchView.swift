@@ -16,6 +16,19 @@ final class SearchView: UIView {
         $0.register(BookListTableViewCell.self, forCellReuseIdentifier: BookListTableViewCell.identifier)
     }
     
+    let emptyView = UIView()
+    
+    let emptyViewImage = UIImageView().then {
+        $0.image = UIImage(named: "karrotIcon")
+        $0.contentMode = .scaleAspectFit
+    }
+    
+    let emptyViewLabel = UILabel().then {
+        $0.text = "도서를 검색해 보세요!"
+        $0.textColor = .systemGray
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -28,10 +41,14 @@ final class SearchView: UIView {
     }
     
     private func configure() {
-        [bookListTableView, searchBar].forEach {
+        [bookListTableView, searchBar, emptyView].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         
+        [emptyViewImage, emptyViewLabel].forEach {
+            emptyView.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
@@ -50,5 +67,25 @@ final class SearchView: UIView {
             bookListTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             bookListTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            emptyView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            emptyViewImage.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
+            emptyViewImage.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor, constant: -20),
+            emptyViewImage.widthAnchor.constraint(equalToConstant: 250),
+            emptyViewImage.heightAnchor.constraint(equalToConstant: 250)
+        ])
+        
+        NSLayoutConstraint.activate([
+            emptyViewLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
+            emptyViewLabel.bottomAnchor.constraint(equalTo: emptyViewImage.topAnchor, constant: -16)
+        ])
+    
     }
 }

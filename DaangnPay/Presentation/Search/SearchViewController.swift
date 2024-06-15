@@ -38,6 +38,7 @@ final class SearchViewController: CommonViewController<SearchViewModel> {
     override func handleOutput(_ state: SearchViewModel.State) {
         switch state {
         case .reloadTableView:
+            self.updateEmptyView()
             self.updateSnapshot(with: viewModel.bookList)
         case .showErrorAlert(let error):
             self.showAlert(title: "오류", message: error.localizedDescription)
@@ -46,6 +47,15 @@ final class SearchViewController: CommonViewController<SearchViewModel> {
         
         default:
             break
+        }
+    }
+    
+    private func updateEmptyView() {
+        if viewModel.bookList.isEmpty {
+            searchView.emptyView.isHidden = false
+            searchView.emptyViewLabel.text = "검색한 도서를 찾을 수 없어요 🥲"
+        } else {
+            searchView.emptyView.isHidden = true
         }
     }
 }
