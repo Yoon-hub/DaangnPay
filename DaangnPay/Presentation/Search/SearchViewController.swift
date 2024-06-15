@@ -52,8 +52,10 @@ final class SearchViewController: CommonViewController<SearchViewModel> {
     
     private func updateEmptyView() {
         if viewModel.bookList.isEmpty {
-            searchView.emptyView.isHidden = false
-            searchView.emptyViewLabel.text = "검색한 도서를 찾을 수 없어요 🥲"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.searchView.emptyView.isHidden = false
+                self.searchView.emptyViewLabel.text = "검색한 도서를 찾을 수 없어요 🥲"
+            }
         } else {
             searchView.emptyView.isHidden = true
         }
