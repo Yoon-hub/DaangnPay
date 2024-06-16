@@ -22,3 +22,15 @@ extension SearchViewModel.State: Equatable {
         }
     }
 }
+
+extension DetailViewModel.State: Equatable {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        switch (lhs, rhs) {
+        case (.setPDFDocument(let lhsPDFDocument), .setPDFDocument(let rhsPDFDocument)):
+            return true
+        default:
+            return false
+        }
+    }
+}
+
