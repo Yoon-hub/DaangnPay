@@ -112,4 +112,5 @@ searchViewModel = SearchViewModel(dependency: dependency)
 ```
 <br><br>
 ### troubleshooting
-#2 #3
+- [Issue #2](https://github.com/Yoon-hub/DaangnPay/issues/2)
+- [Issue #3](https://github.com/Yoon-hub/DaangnPay/issues/3)
