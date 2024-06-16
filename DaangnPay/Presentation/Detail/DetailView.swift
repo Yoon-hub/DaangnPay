@@ -211,10 +211,7 @@ final class DetailView: UIView {
     
     func updateViewHeight() {
         pdfHeightConstraint.constant = 540
-        
-        UIView.animate(withDuration: 0.3) {
-            self.layoutIfNeeded()
-        }
+        self.layoutIfNeeded()
     }
     
 }
