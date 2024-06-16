@@ -14,6 +14,11 @@ final class DetailView: UIView {
     
     let contentView = UIView()
     
+    let indicator = UIActivityIndicatorView(style: .large).then {
+        $0.color = .orange
+        $0.hidesWhenStopped = true
+    }
+    
     let bookImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
     }
@@ -111,6 +116,10 @@ final class DetailView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(contentView)
         
+
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(indicator)
+        
         [bookImageView,titleLabel, subtitleLabel, authorsLabel, publisherLabel, languageLabel, isbn10Label, isbn13Label, pagesLabel, yearLabel, ratingLabel, descLabel, priceLabel, urlLabel, pdfView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview($0)
@@ -139,6 +148,13 @@ final class DetailView: UIView {
             bookImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             bookImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             bookImageView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        NSLayoutConstraint.activate([
+            indicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            indicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -30),
+            indicator.widthAnchor.constraint(equalToConstant: 50),
+            indicator.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         

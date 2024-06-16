@@ -17,6 +17,7 @@ final class DetailViewModel: ViewModelable {
     
     enum State {
         case setPDFDocument(PDFDocument)
+        case stopIndicator
     }
     
     var output: AnyPublisher<State, Never> {
@@ -42,6 +43,7 @@ final class DetailViewModel: ViewModelable {
                 guard let pdfDocument = makePDFDocument(url: pdf) else {return}
                 outputSubject.send(.setPDFDocument(pdfDocument))
             }
+            outputSubject.send(.stopIndicator)
         }
     }
 }

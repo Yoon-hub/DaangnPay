@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Combine
+import PDFKit
 
 final class DetailViewController: CommonViewController<DetailViewModel> {
     let detailView: DetailView!
@@ -22,7 +24,11 @@ final class DetailViewController: CommonViewController<DetailViewModel> {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel.input(.viewDidAppear)
+        detailView.indicator.startAnimating()
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.viewModel.input(.viewDidAppear)
+        }
     }
     
     // MARK: Set
@@ -40,6 +46,8 @@ final class DetailViewController: CommonViewController<DetailViewModel> {
         case .setPDFDocument(let pdfDocument):
             detailView.updateViewHeight()
             detailView.pdfView.document = pdfDocument
+        case .stopIndicator:
+            detailView.indicator.stopAnimating()
         }
     }
 }
