@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PDFKit
 
 final class DetailView: UIView {
     
@@ -82,6 +83,15 @@ final class DetailView: UIView {
         $0.numberOfLines = 0
     }
     
+    let pdfView = PDFView().then {
+        $0.backgroundColor = .yellow
+        $0.autoScales = true
+        $0.displayMode = .singlePageContinuous
+        $0.displayDirection = .vertical
+    }
+    
+    var pdfHeightConstraint: NSLayoutConstraint!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -101,7 +111,7 @@ final class DetailView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(contentView)
         
-        [bookImageView,titleLabel, subtitleLabel, authorsLabel, publisherLabel, languageLabel, isbn10Label, isbn13Label, pagesLabel, yearLabel, ratingLabel, descLabel, priceLabel, urlLabel].forEach {
+        [bookImageView,titleLabel, subtitleLabel, authorsLabel, publisherLabel, languageLabel, isbn10Label, isbn13Label, pagesLabel, yearLabel, ratingLabel, descLabel, priceLabel, urlLabel, pdfView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview($0)
         }
@@ -145,7 +155,16 @@ final class DetailView: UIView {
             lastView = $0
         }
         
-        lastView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        pdfHeightConstraint = pdfView.heightAnchor.constraint(equalToConstant: 0)
+        
+        NSLayoutConstraint.activate([
+            pdfView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            pdfView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            pdfView.topAnchor.constraint(equalTo: lastView.bottomAnchor, constant: 20),
+            pdfHeightConstraint
+        ])
+        
+        pdfView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
     
     }
     
@@ -172,6 +191,14 @@ final class DetailView: UIView {
         
         guard let url = URL(string: detailResponse.image) else {return}
          bookImageView.loadImage(url: url, imagePlaceHolder: UIImage(named: "imagePlaceholder"))
+    }
+    
+    func updateViewHeight() {
+        pdfHeightConstraint.constant = 540
+        
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
     }
     
 }

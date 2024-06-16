@@ -133,7 +133,7 @@ final class SearchViewModelTests: XCTestCase {
                                                desc: "https://itbook.store/img/books/9780134431598.png",
                                                price: "https://itbook.store/books/9780134431598", 
                                                image: "English",
-                                               url: "0134431596")
+                                               url: "0134431596", pdf: nil)
     
         let apiService = APIServiceStub(error: nil, data: detailResponse)
         let depndency = SearchViewModel.Dependency(apiService: apiService)

@@ -20,6 +20,12 @@ final class DetailViewController: CommonViewController<DetailViewModel> {
         self.view = detailView
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.input(.viewDidAppear)
+    }
+    
+    // MARK: Set
     override func set() {
         super.set()
         detailView.bind(detailResponse: viewModel.dependency.detailBookData)
@@ -29,4 +35,11 @@ final class DetailViewController: CommonViewController<DetailViewModel> {
         self.navigationItem.title = "상세 화면"
     }
     
+    override func handleOutput(_ state: ViewModelType.State) {
+        switch state {
+        case .setPDFDocument(let pdfDocument):
+            detailView.updateViewHeight()
+            detailView.pdfView.document = pdfDocument
+        }
+    }
 }
