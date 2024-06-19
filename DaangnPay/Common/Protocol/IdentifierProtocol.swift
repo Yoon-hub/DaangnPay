@@ -11,8 +11,10 @@ protocol IdentifierProtocol {
     static var identifier: String { get }
 }
 
-extension UITableViewCell: IdentifierProtocol {
+extension IdentifierProtocol {
     static var identifier: String {
         return String(describing: self)
     }
 }
+
+extension UITableViewCell: IdentifierProtocol {}
