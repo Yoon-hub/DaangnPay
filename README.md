@@ -119,3 +119,7 @@ searchViewModel = SearchViewModel(dependency: dependency)
 
 ### 시연 영상
 https://github.com/Yoon-hub/DaangnPay/assets/92036498/72636f8f-ca1f-4efd-bb2d-d80f87aa3060
+
+### 개선 사항
+- Coordinator 패턴을 적용해 화면 전환 로직을 관리
+- DIContainer를 활용하여 복잡한 의존성을 매번 생성하는게 아니라 꺼내서 사용
